@@ -1,7 +1,9 @@
-const App = () => {
-  return (
-    <h1>Pterodactyl Installer</h1>
-  );
-}
+import React from 'react'
 
-export default App;
+export const App = () => {
+  return (
+    <div>
+      <h1>Pterodactyl Installer</h1>
+    </div>
+  )
+}
