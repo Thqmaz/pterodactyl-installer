@@ -1,9 +1,10 @@
-import React from 'react'
+import {
+	useRoutes
+} from "react-router-dom";
+import { RouteConfig } from "./RouteConfig";
 
 export const App = () => {
-  return (
-    <div>
-      <h1>Pterodactyl Installer</h1>
-    </div>
-  )
+  let routing = useRoutes(RouteConfig);
+
+  return routing;
 }
