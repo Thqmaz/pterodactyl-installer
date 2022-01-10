@@ -1,5 +1,4 @@
 import React from 'react'
-import './HistoryScreen.css'
 
 export const HistoryScreen = () => {
     return (
