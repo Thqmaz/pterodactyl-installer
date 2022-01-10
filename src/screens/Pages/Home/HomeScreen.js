@@ -1,10 +1,11 @@
 import React from 'react'
-import './HomeScreen.css'
+import { Header } from '../../Components/Header'
 
 export const HomeScreen = () => {
     return (
-        <div>
+        <>
+            <Header />
             <h1>Home</h1>
-        </div>
+        </>
     )
 }
