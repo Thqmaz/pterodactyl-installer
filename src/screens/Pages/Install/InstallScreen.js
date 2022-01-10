@@ -1,5 +1,4 @@
 import React from 'react'
-import './InstallScreen.css'
 
 export const InstallScreen = () => {
     return (
