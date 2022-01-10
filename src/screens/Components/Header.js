@@ -24,7 +24,7 @@ export const Header = () => {
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                        {/* Welcome, <a href="##" onClick={ auth.signInWithEmailAndPassword("test@test.nl", "test123") }>Mark Otto</a> */}
+                        {/* Welcome, {auth.user.name or smth} */}
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
