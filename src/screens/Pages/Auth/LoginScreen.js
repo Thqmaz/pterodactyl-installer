@@ -1,7 +1,8 @@
 import React, { useState } from "react"
-import { Button, Container, Form } from "react-bootstrap"
+import { Button, Col, Container, Form, Image, Row } from "react-bootstrap"
 import './LoginScreen.css'
 import { auth } from "../../../firebase"
+import { Link } from "react-router-dom"
 
 export const LoginScreen = () => {
     const [email, setEmail] = useState("")
@@ -23,20 +24,19 @@ export const LoginScreen = () => {
         <>
             <section className="vh-100">
                 <Container className="h-custom">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-md-9 col-lg-6 col-xl-5">
-                            <img src="https://pterodactyl.io/logos/pterry.svg" className="img-fluid"
-                                alt="Pterodactyl Logo" />
-                        </div>
-                        <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <Row className="row d-flex justify-content-center align-items-center h-100" >
+                        <Col md='9' lg='6' xl='5'>
+                            <Image src="https://pterodactyl.io/logos/pterry.svg" className="img-fluid" alt="Pterodactyl Logo" />
+                        </Col>
+                        <Col md='8' lg='6' xl='4'>
                             <Form onSubmit={handleLogin}>
-                                <div className="divider d-flex align-items-center my-4">
-                                    <p className="text-center fw-bold mx-3 mb-0">
+                                <Form.Group className="divider d-flex align-items-center my-4">
+                                    <Form.Label className="text-center fw-bold mx-3 mb-0">
                                         Login
-                                    </p>
-                                </div>
+                                    </Form.Label>
+                                </Form.Group>
 
-                                <Form.Group className="form-outline mb-4">
+                                <Form.Group className="form-outline mb-4" size='lg' controlId="email">
                                     <Form.Label className="form-label">Email</Form.Label>
                                     <Form.Control
                                         autoFocus
@@ -48,7 +48,7 @@ export const LoginScreen = () => {
                                     />
                                 </Form.Group>
 
-                                <Form.Group className="form-outline mb-4">
+                                <Form.Group className="form-outline mb-4" size='lg' controlId="password">
                                     <Form.Label className="form-label">Wachtwoord</Form.Label>
                                     <Form.Control
                                         autoFocus
@@ -61,43 +61,23 @@ export const LoginScreen = () => {
                                 </Form.Group>
 
                                 <Form.Group className="text-center text-lg-start mt-4 pt-2">
-                                    <Button type="button" className="btn btn-primary btn-lg custombutton" disabled={!validateForm()}>
+                                    <Button
+                                        type="button"
+                                        className="btn btn-primary btn-lg custombutton"
+                                        disabled={!validateForm()}
+                                    >
                                         Login
                                     </Button>
-                                    <p className="small fw-bold mt-2 pt-1 mb-0">
-                                        Nog geen account? 
-                                        <a href="#!" className="link-danger">
-                                        Maak een account aan.
-                                        </a>
-                                    </p>
+                                    <Form.Label className="small fw-bold mt-2 pt-1 mb-0" >
+                                        Nog geen account?&nbsp;
+                                        <Link to="/register" className="link-danger" >
+                                            Maak een account aan.
+                                        </Link>
+                                    </Form.Label>
                                 </Form.Group>
-
                             </Form>
-                            {/* 
-                        <Form onSubmit={handleLogin}>
-                            <Form.Group size="lg" controlId="email">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    autoFocus
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </Form.Group>
-                            <Form.Group size="lg" controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </Form.Group>
-                            <Button block size="lg" type="submit" disabled={!validateForm()}>
-                                Login
-                            </Button>
-                        </Form> */}
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </Container>
             </section>
         </>
