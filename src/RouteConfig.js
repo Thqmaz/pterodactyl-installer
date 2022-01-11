@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import { SignOut } from './functions/SignOut'
+// import { SignOut } from './functions/SignOut'
 
 // Pages
 import { HomeScreen } from './screens/Pages/Home/HomeScreen'
@@ -31,10 +31,10 @@ export const RouteConfig = ({isAuth}) => [
 				path: '/login',
 				element: isAuth ? <Navigate to='/' /> : <LoginScreen />
 			},
-			{
-				path: '/signout',
-				element: isAuth ? <SignOut /> : <Navigate to='/login' />
-			}
+			// {
+			// 	path: '/signout',
+			// 	element: isAuth ? <SignOut /> : <Navigate to='/login' />
+			// }
 		],
 	},
 	{
