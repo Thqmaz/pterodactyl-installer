@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap"
-import './LoginScreen.css'
-import { auth } from "../../../firebase"
 import { Link } from "react-router-dom"
+import './LoginScreen.css'
+import {
+	signInWithEmailAndPassword
+} from 'firebase/auth';
+import { auth } from "../../../firebase"
 
 export const LoginScreen = () => {
     const [email, setEmail] = useState("")
@@ -13,11 +16,8 @@ export const LoginScreen = () => {
     }
 
     function handleLogin(event) {
-        event.preventDefault();
-        auth.signInWithEmailAndPassword(email, password).then(userCredentials => {
-            const user = userCredentials.user
-            console.log(`Logged in with ${user.email}`)
-        }).catch(err => alert(err.message))
+        event.preventDefault()
+        signInWithEmailAndPassword(auth, email, password)
     }
 
     return (
@@ -51,7 +51,6 @@ export const LoginScreen = () => {
                                 <Form.Group className="form-outline mb-4" size='lg' controlId="password">
                                     <Form.Label className="form-label">Wachtwoord</Form.Label>
                                     <Form.Control
-                                        autoFocus
                                         className="form-control form-control-lg"
                                         type="password"
                                         value={password}
@@ -62,7 +61,7 @@ export const LoginScreen = () => {
 
                                 <Form.Group className="text-center text-lg-start mt-4 pt-2">
                                     <Button
-                                        type="button"
+                                        type="submit"
                                         className="btn btn-primary btn-lg custombutton"
                                         disabled={!validateForm()}
                                     >
