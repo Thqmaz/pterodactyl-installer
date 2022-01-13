@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Image, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import './LoginScreen.css'
 import {
-	signInWithEmailAndPassword
+    signInWithEmailAndPassword
 } from 'firebase/auth';
 import { auth } from "../../../firebase"
 
