@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
 import { Header } from '../../Components/Header'
+import { auth } from "../../../firebase"
 
 export const InstallScreen = () => {
     const [ipaddress, setIPAddress] = useState("")
@@ -12,6 +13,12 @@ export const InstallScreen = () => {
 
     function handleInstallation(event) {
         event.preventDefault()
+
+        fetch(`http://localhost:4000/install/${auth.currentUser?.uid}/${ipaddress}/${ipaddress}`, { method: 'GET' })
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+            });
     }
 
     return (
