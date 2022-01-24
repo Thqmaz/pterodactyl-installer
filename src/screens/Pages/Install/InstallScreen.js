@@ -69,11 +69,8 @@ export const InstallScreen = () => {
         }
         if (show && code !== 200) {
             return (
-                <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                <Alert variant="warning" onClose={() => setShow(false)} dismissible>
                     <Alert.Heading>{message}</Alert.Heading>
-                    <p>
-                        kroekt
-                    </p>
                 </Alert>
             );
         }
